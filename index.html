@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Ramón Berzosa Pedroche">
     <meta name="description" content="Currículum Vitae de Ramón Berzosa Pedroche - Desarrollador de Aplicaciones Web">
-    <title>CV Ramón Berzosa Pedroche</title>
+    <title>CV Interactivo - Ramón Berzosa Pedroche</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
@@ -21,6 +21,22 @@
             transform: translateY(-2px);
             box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
         }
+        
+        /* Clases personalizadas para la animación del acordeón usando CSS Grid */
+        .accordion-grid {
+            display: grid;
+            grid-template-rows: 1fr;
+            transition: grid-template-rows 0.4s ease, opacity 0.4s ease, margin-top 0.4s ease;
+            opacity: 1;
+        }
+        .accordion-grid.collapsed {
+            grid-template-rows: 0fr;
+            opacity: 0;
+            margin-top: 0 !important;
+        }
+        .accordion-inner {
+            overflow: hidden;
+        }
     </style>
 </head>
 <body class="text-slate-800 antialiased">
@@ -29,7 +45,7 @@
         <div class="bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col md:flex-row">
             
             <!-- Sidebar -->
-            <aside class="w-full md:w-80 bg-slate-900 text-white p-8">
+            <aside class="w-full md:w-80 bg-slate-900 text-white p-8 z-10 shadow-[4px_0_24px_rgba(0,0,0,0.1)]">
                 <div class="mb-6 flex justify-center md:justify-start">
                     <img src="https://i.ibb.co/kgVKzPfw/6021777662525164495.jpg" alt="Foto de perfil de Ramón Berzosa" class="w-32 h-32 rounded-full border-4 border-slate-700 object-cover shadow-lg mx-auto md:mx-0">
                 </div>
@@ -104,138 +120,184 @@
             </aside>
 
             <!-- Main Content -->
-            <main class="flex-1 p-8 md:p-12">
+            <main class="flex-1 p-8 md:p-12 bg-white">
                 
                 <!-- Perfil -->
-                <section class="mb-10">
-                    <h2 class="text-xl font-bold border-b-2 border-blue-500 pb-2 inline-block mb-4">Perfil Profesional</h2>
-                    <p class="text-slate-600 leading-relaxed">
-                        Graduado en Desarrollo de Aplicaciones Web con una base técnica sólida en múltiples lenguajes de programación y experiencia práctica acumulada en repositorios públicos. Combino competencias técnicas y lógicas avanzadas con capacidad analítica desarrollada en formación científica. Busco incorporarme a equipos de desarrollo de software para aportar valor a través del desarrollo de código estructurado, la gestión eficiente de bases de datos y la resolución de problemas técnicos complejos.
-                    </p>
+                <section class="mb-6 border-b border-slate-100 pb-6">
+                    <!-- Cabecera Clickable -->
+                    <div class="flex justify-between items-center cursor-pointer group js-accordion-toggle select-none">
+                        <h2 class="text-xl font-bold border-b-2 border-blue-500 pb-1 mb-0 transition-colors group-hover:text-blue-600">Perfil Profesional</h2>
+                        <div class="w-8 h-8 flex items-center justify-center rounded-full bg-slate-50 text-slate-400 group-hover:bg-blue-50 group-hover:text-blue-600 transition-colors">
+                            <i class="fas fa-chevron-up transition-transform duration-300 js-icon"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- Contenido del Acordeón -->
+                    <div class="accordion-grid mt-5 js-accordion-content">
+                        <div class="accordion-inner">
+                            <p class="text-slate-600 leading-relaxed">
+                                Graduado en Desarrollo de Aplicaciones Web con una base técnica sólida en múltiples lenguajes de programación y experiencia práctica acumulada en repositorios públicos. Combino competencias técnicas y lógicas avanzadas con capacidad analítica desarrollada en formación científica. Busco incorporarme a equipos de desarrollo de software para aportar valor a través del desarrollo de código estructurado, la gestión eficiente de bases de datos y la resolución de problemas técnicos complejos.
+                            </p>
+                        </div>
+                    </div>
                 </section>
 
                 <!-- Formación -->
-                <section class="mb-10">
-                    <h2 class="text-xl font-bold border-b-2 border-blue-500 pb-2 inline-block mb-6">Formación Académica</h2>
-                    <div class="space-y-6">
-                        <div class="relative pl-6 border-l-2 border-slate-200">
-                            <div class="absolute w-3 h-3 bg-blue-500 rounded-full -left-[7px] top-1.5"></div>
-                            <h4 class="font-bold text-slate-800">Técnico Superior en Desarrollo de Aplicaciones Web (DAW)</h4>
-                            <p class="text-sm text-blue-600 font-semibold uppercase">I.E.S. Villablanca, Madrid | 2024 – 2026</p>
-                            <p class="text-sm text-slate-600 mt-1 italic">Estudios completados de forma satisfactoria. Especialización en programación web (entorno cliente y servidor), implantación de sistemas operativos, despliegue de aplicaciones y diseño de bases de datos relacionales.</p>
+                <section class="mb-6 border-b border-slate-100 pb-6">
+                    <div class="flex justify-between items-center cursor-pointer group js-accordion-toggle select-none">
+                        <h2 class="text-xl font-bold border-b-2 border-blue-500 pb-1 mb-0 transition-colors group-hover:text-blue-600">Formación Académica</h2>
+                        <div class="w-8 h-8 flex items-center justify-center rounded-full bg-slate-50 text-slate-400 group-hover:bg-blue-50 group-hover:text-blue-600 transition-colors">
+                            <i class="fas fa-chevron-down transition-transform duration-300 js-icon"></i>
                         </div>
-                        <div class="relative pl-6 border-l-2 border-slate-200">
-                            <div class="absolute w-3 h-3 bg-slate-300 rounded-full -left-[7px] top-1.5"></div>
-                            <h4 class="font-bold text-slate-800">Gestión de Cocina (Grado Superior)</h4>
-                            <p class="text-sm text-slate-500 uppercase">Escuela Superior de Hostelería y Turismo, Madrid | 2021 – 2023</p>
-                        </div>
-                        <div class="relative pl-6 border-l-2 border-slate-200">
-                            <div class="absolute w-3 h-3 bg-slate-300 rounded-full -left-[7px] top-1.5"></div>
-                            <h4 class="font-bold text-slate-800">Grado en Farmacia (Estudios parciales)</h4>
-                            <p class="text-sm text-slate-500 uppercase">Universidad Complutense de Madrid | 2012 – 2020</p>
+                    </div>
+                    
+                    <div class="accordion-grid collapsed js-accordion-content">
+                        <div class="accordion-inner space-y-6">
+                            <div class="relative pl-6 border-l-2 border-slate-200">
+                                <div class="absolute w-3 h-3 bg-blue-500 rounded-full -left-[7px] top-1.5"></div>
+                                <h4 class="font-bold text-slate-800">Técnico Superior en Desarrollo de Aplicaciones Web (DAW)</h4>
+                                <p class="text-sm text-blue-600 font-semibold uppercase">I.E.S. Villablanca, Madrid | 2024 – 2026</p>
+                                <p class="text-sm text-slate-600 mt-1 italic">Estudios completados de forma satisfactoria. Especialización en programación web (entorno cliente y servidor), implantación de sistemas operativos, despliegue de aplicaciones y diseño de bases de datos relacionales.</p>
+                            </div>
+                            <div class="relative pl-6 border-l-2 border-slate-200">
+                                <div class="absolute w-3 h-3 bg-slate-300 rounded-full -left-[7px] top-1.5"></div>
+                                <h4 class="font-bold text-slate-800">Gestión de Cocina (Grado Superior)</h4>
+                                <p class="text-sm text-slate-500 uppercase">Escuela Superior de Hostelería y Turismo, Madrid | 2021 – 2023</p>
+                            </div>
+                            <div class="relative pl-6 border-l-2 border-slate-200">
+                                <div class="absolute w-3 h-3 bg-slate-300 rounded-full -left-[7px] top-1.5"></div>
+                                <h4 class="font-bold text-slate-800">Grado en Farmacia (Estudios parciales)</h4>
+                                <p class="text-sm text-slate-500 uppercase">Universidad Complutense de Madrid | 2012 – 2020</p>
+                            </div>
                         </div>
                     </div>
                 </section>
 
                 <!-- Competencias -->
-                <section class="mb-10">
-                    <h2 class="text-xl font-bold border-b-2 border-blue-500 pb-2 inline-block mb-6">Competencias Técnicas</h2>
-                    <div class="flex flex-wrap gap-2 mb-6">
-                        <span class="skill-tag bg-blue-50 text-blue-700 px-3 py-1 rounded-lg text-sm font-semibold border border-blue-100">Java</span>
-                        <span class="skill-tag bg-blue-50 text-blue-700 px-3 py-1 rounded-lg text-sm font-semibold border border-blue-100">Python</span>
-                        <span class="skill-tag bg-blue-50 text-blue-700 px-3 py-1 rounded-lg text-sm font-semibold border border-blue-100">JavaScript</span>
-                        <span class="skill-tag bg-blue-50 text-blue-700 px-3 py-1 rounded-lg text-sm font-semibold border border-blue-100">Kotlin</span>
-                        <span class="skill-tag bg-blue-50 text-blue-700 px-3 py-1 rounded-lg text-sm font-semibold border border-blue-100">PHP</span>
-                        <span class="skill-tag bg-slate-50 text-slate-700 px-3 py-1 rounded-lg text-sm font-semibold border border-slate-200">MySQL</span>
-                        <span class="skill-tag bg-slate-50 text-slate-700 px-3 py-1 rounded-lg text-sm font-semibold border border-slate-200">Android Studio</span>
-                        <span class="skill-tag bg-slate-50 text-slate-700 px-3 py-1 rounded-lg text-sm font-semibold border border-slate-200">AWS (Básico)</span>
+                <section class="mb-6 border-b border-slate-100 pb-6">
+                    <div class="flex justify-between items-center cursor-pointer group js-accordion-toggle select-none">
+                        <h2 class="text-xl font-bold border-b-2 border-blue-500 pb-1 mb-0 transition-colors group-hover:text-blue-600">Competencias Técnicas</h2>
+                        <div class="w-8 h-8 flex items-center justify-center rounded-full bg-slate-50 text-slate-400 group-hover:bg-blue-50 group-hover:text-blue-600 transition-colors">
+                            <i class="fas fa-chevron-down transition-transform duration-300 js-icon"></i>
+                        </div>
                     </div>
                     
-                    <div class="bg-slate-50 p-4 rounded-xl">
-                        <h4 class="text-sm font-bold text-slate-700 mb-3 flex items-center gap-2">
-                            <i class="fas fa-certificate text-blue-500"></i> Especializaciones y Cursos Certificados
-                        </h4>
-                        <ul class="text-xs space-y-2 text-slate-600">
-                            <li class="flex justify-between">
-                                <span>100 Days of Code™: Complete Python Pro Bootcamp</span>
-                                <span class="text-blue-600 font-medium">Udemy</span>
-                            </li>
-                            <li class="flex justify-between">
-                                <span>Machine Learning A-Z: AI, Python & R + ChatGPT</span>
-                                <span class="text-blue-600 font-medium">Udemy</span>
-                            </li>
-                            <li class="flex justify-between">
-                                <span>Creación de BBDD para eCommerce con MySQL</span>
-                                <span class="text-blue-600 font-medium">OpenWebinars</span>
-                            </li>
-                            <li class="flex justify-between">
-                                <span>Curso de Programación en Kotlin y Desarrollo Android</span>
-                                <span class="text-blue-600 font-medium">OpenWebinars</span>
-                            </li>
-                        </ul>
+                    <div class="accordion-grid collapsed js-accordion-content">
+                        <div class="accordion-inner">
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="skill-tag bg-blue-50 text-blue-700 px-3 py-1 rounded-lg text-sm font-semibold border border-blue-100">Java</span>
+                                <span class="skill-tag bg-blue-50 text-blue-700 px-3 py-1 rounded-lg text-sm font-semibold border border-blue-100">Python</span>
+                                <span class="skill-tag bg-blue-50 text-blue-700 px-3 py-1 rounded-lg text-sm font-semibold border border-blue-100">JavaScript</span>
+                                <span class="skill-tag bg-blue-50 text-blue-700 px-3 py-1 rounded-lg text-sm font-semibold border border-blue-100">Kotlin</span>
+                                <span class="skill-tag bg-blue-50 text-blue-700 px-3 py-1 rounded-lg text-sm font-semibold border border-blue-100">PHP</span>
+                                <span class="skill-tag bg-slate-50 text-slate-700 px-3 py-1 rounded-lg text-sm font-semibold border border-slate-200">MySQL</span>
+                                <span class="skill-tag bg-slate-50 text-slate-700 px-3 py-1 rounded-lg text-sm font-semibold border border-slate-200">Android Studio</span>
+                                <span class="skill-tag bg-slate-50 text-slate-700 px-3 py-1 rounded-lg text-sm font-semibold border border-slate-200">AWS (Básico)</span>
+                            </div>
+                            
+                            <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                                <h4 class="text-sm font-bold text-slate-700 mb-3 flex items-center gap-2">
+                                    <i class="fas fa-certificate text-blue-500"></i> Especializaciones y Cursos Certificados
+                                </h4>
+                                <ul class="text-xs space-y-2 text-slate-600">
+                                    <li class="flex justify-between">
+                                        <span>100 Days of Code™: Complete Python Pro Bootcamp</span>
+                                        <span class="text-blue-600 font-medium">Udemy</span>
+                                    </li>
+                                    <li class="flex justify-between">
+                                        <span>Machine Learning A-Z: AI, Python & R + ChatGPT</span>
+                                        <span class="text-blue-600 font-medium">Udemy</span>
+                                    </li>
+                                    <li class="flex justify-between">
+                                        <span>Creación de BBDD para eCommerce con MySQL</span>
+                                        <span class="text-blue-600 font-medium">OpenWebinars</span>
+                                    </li>
+                                    <li class="flex justify-between">
+                                        <span>Curso de Programación en Kotlin y Desarrollo Android</span>
+                                        <span class="text-blue-600 font-medium">OpenWebinars</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </section>
 
                 <!-- Proyectos Destacados (GitHub) -->
-                <section class="mb-10">
-                    <h2 class="text-xl font-bold border-b-2 border-blue-500 pb-2 inline-block mb-6">Proyectos y Experiencia de Desarrollo</h2>
-                    <div class="space-y-6">
-                        <div class="border border-slate-100 rounded-xl p-5 hover:border-blue-200 transition-colors bg-white shadow-sm">
-                            <div class="flex justify-between items-start mb-2">
-                                <h3 class="font-bold text-slate-800 text-lg">Portafolio de Proyectos - GitHub (Korrinton)</h3>
-                                <a href="https://github.com/Korrinton" target="_blank" class="text-xs font-bold text-blue-600 bg-blue-50 hover:bg-blue-100 px-3 py-1 rounded-lg border border-blue-200 transition-all flex items-center gap-1">
-                                    <i class="fab fa-github"></i> Ver Código
-                                </a>
+                <section class="mb-6 border-b border-slate-100 pb-6">
+                    <div class="flex justify-between items-center cursor-pointer group js-accordion-toggle select-none">
+                        <h2 class="text-xl font-bold border-b-2 border-blue-500 pb-1 mb-0 transition-colors group-hover:text-blue-600">Proyectos de Desarrollo</h2>
+                        <div class="w-8 h-8 flex items-center justify-center rounded-full bg-slate-50 text-slate-400 group-hover:bg-blue-50 group-hover:text-blue-600 transition-colors">
+                            <i class="fas fa-chevron-down transition-transform duration-300 js-icon"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-grid collapsed js-accordion-content">
+                        <div class="accordion-inner">
+                            <div class="border border-slate-200 rounded-xl p-5 hover:border-blue-300 transition-colors bg-slate-50 shadow-sm">
+                                <div class="flex justify-between items-start mb-3">
+                                    <h3 class="font-bold text-slate-800 text-lg">Portafolio GitHub (Korrinton)</h3>
+                                    <a href="https://github.com/Korrinton" target="_blank" class="text-xs font-bold text-white bg-slate-800 hover:bg-slate-700 px-3 py-1.5 rounded-lg transition-all flex items-center gap-1 shadow-sm">
+                                        <i class="fab fa-github"></i> Ver Código
+                                    </a>
+                                </div>
+                                <p class="text-sm text-slate-600 mb-3">Repositorio que contiene los desarrollos principales, arquitecturas de software y pruebas de código realizadas de forma autónoma y académica:</p>
+                                <ul class="list-disc list-outside ml-4 text-sm text-slate-600 space-y-2">
+                                    <li><strong>Aplicaciones Móviles (Android / Kotlin):</strong> Diseño de interfaces y control de flujos nativos.</li>
+                                    <li><strong>Desarrollo Backend (PHP, Java, Python):</strong> Implementación de arquitecturas MVC y APIs.</li>
+                                    <li><strong>Bases de Datos eCommerce (MySQL):</strong> Diseño relacional, normalización y optimización.</li>
+                                    <li><strong>Automatización:</strong> Scripts enfocados en procesamiento de datos y lógica algorítmica.</li>
+                                </ul>
                             </div>
-                            <p class="text-sm text-slate-600 mb-3">Repositorio que contiene los desarrollos principales, arquitecturas de software y pruebas de código realizadas de forma autónoma y académica:</p>
-                            <ul class="list-disc list-outside ml-4 text-sm text-slate-600 space-y-2">
-                                <li><strong>Aplicaciones Móviles (Android / Kotlin):</strong> Diseño de interfaces y control de flujos nativos utilizando lenguajes de última generación en Android Studio.</li>
-                                <li><strong>Desarrollo Backend & Backend-Client (PHP, Java, Python):</strong> Implementación de arquitecturas MVC, APIs de comunicación básicas y servicios estructurados en servidor.</li>
-                                <li><strong>Bases de Datos eCommerce (MySQL):</strong> Diseño relacional, normalización, optimización de consultas e integración con flujos funcionales de pasarelas de compra.</li>
-                                <li><strong>Bootcamp Python & Automatización:</strong> Scripts enfocados en procesamiento de datos complejos, lógica algorítmica y aplicación de bibliotecas estructuradas.</li>
-                            </ul>
                         </div>
                     </div>
                 </section>
 
                 <!-- Experiencia Laboral -->
-                <section>
-                    <h2 class="text-xl font-bold border-b-2 border-blue-500 pb-2 inline-block mb-6">Experiencia Laboral</h2>
-                    <div class="space-y-8">
-                        <div>
-                            <div class="flex justify-between items-start mb-1">
-                                <h4 class="font-bold text-slate-800">Desarrollador Web (Prácticas)</h4>
-                                <span class="text-xs font-bold bg-slate-100 px-2 py-1 rounded">02/2026 – 05/2026</span>
-                            </div>
-                            <p class="text-sm text-blue-600 font-semibold mb-2">Madrid Digital | Madrid, España</p>
-                            <ul class="list-disc list-outside ml-4 text-sm text-slate-600 space-y-1">
-                                <li>Implementación e integración de un sistema de autenticación única (SSO).</li>
-                                <li>Desarrollo en una aplicación web de analítica de datos y métricas (similar a Google Analytics).</li>
-                            </ul>
+                <section class="mb-4">
+                    <div class="flex justify-between items-center cursor-pointer group js-accordion-toggle select-none">
+                        <h2 class="text-xl font-bold border-b-2 border-blue-500 pb-1 mb-0 transition-colors group-hover:text-blue-600">Experiencia Laboral</h2>
+                        <div class="w-8 h-8 flex items-center justify-center rounded-full bg-slate-50 text-slate-400 group-hover:bg-blue-50 group-hover:text-blue-600 transition-colors">
+                            <i class="fas fa-chevron-down transition-transform duration-300 js-icon"></i>
                         </div>
-
-                        <div>
-                            <div class="flex justify-between items-start mb-1">
-                                <h4 class="font-bold text-slate-800">Cocinero</h4>
-                                <span class="text-xs font-bold bg-slate-100 px-2 py-1 rounded">2021 – 2023</span>
+                    </div>
+                    
+                    <div class="accordion-grid collapsed js-accordion-content">
+                        <div class="accordion-inner space-y-8">
+                            <div>
+                                <div class="flex justify-between items-start mb-1">
+                                    <h4 class="font-bold text-slate-800">Desarrollador Web (Prácticas)</h4>
+                                    <span class="text-xs font-bold bg-slate-100 px-2 py-1 rounded text-slate-600">02/2026 – 05/2026</span>
+                                </div>
+                                <p class="text-sm text-blue-600 font-semibold mb-2">Madrid Digital | Madrid, España</p>
+                                <ul class="list-disc list-outside ml-4 text-sm text-slate-600 space-y-1">
+                                    <li>Implementación e integración de un sistema de autenticación única (SSO).</li>
+                                    <li>Desarrollo en una aplicación web de analítica de datos y métricas (similar a Google Analytics).</li>
+                                </ul>
                             </div>
-                            <p class="text-sm text-blue-600 font-semibold mb-2">Empatif | Madrid, España</p>
-                            <ul class="list-disc list-outside ml-4 text-sm text-slate-600 space-y-1">
-                                <li>Elaboración de platos en partida caliente y preparación de mise en place.</li>
-                                <li>Gestión de servicios de catering para eventos de gran volumen en condiciones de alta presión.</li>
-                            </ul>
-                        </div>
 
-                        <div>
-                            <div class="flex justify-between items-start mb-1">
-                                <h4 class="font-bold text-slate-800">Cocinero</h4>
-                                <span class="text-xs font-bold bg-slate-100 px-2 py-1 rounded">05/2023 – 06/2023</span>
+                            <div>
+                                <div class="flex justify-between items-start mb-1">
+                                    <h4 class="font-bold text-slate-800">Cocinero</h4>
+                                    <span class="text-xs font-bold bg-slate-100 px-2 py-1 rounded text-slate-600">2021 – 2023</span>
+                                </div>
+                                <p class="text-sm text-blue-600 font-semibold mb-2">Empatif | Madrid, España</p>
+                                <ul class="list-disc list-outside ml-4 text-sm text-slate-600 space-y-1">
+                                    <li>Elaboración de platos en partida caliente y preparación de mise en place.</li>
+                                    <li>Gestión de servicios de catering para eventos de gran volumen en condiciones de alta presión.</li>
+                                </ul>
                             </div>
-                            <p class="text-sm text-blue-600 font-semibold mb-2">Anna Aurea Hotel | Budapest, Hungría</p>
-                            <ul class="list-disc list-outside ml-4 text-sm text-slate-600 space-y-1">
-                                <li>Experiencia internacional gestionando cocina caliente y eventos especiales.</li>
-                                <li>Adaptación a equipos multidisciplinares en entornos extranjeros, utilizando el inglés como idioma vehicular.</li>
-                            </ul>
+
+                            <div>
+                                <div class="flex justify-between items-start mb-1">
+                                    <h4 class="font-bold text-slate-800">Cocinero</h4>
+                                    <span class="text-xs font-bold bg-slate-100 px-2 py-1 rounded text-slate-600">05/2023 – 06/2023</span>
+                                </div>
+                                <p class="text-sm text-blue-600 font-semibold mb-2">Anna Aurea Hotel | Budapest, Hungría</p>
+                                <ul class="list-disc list-outside ml-4 text-sm text-slate-600 space-y-1">
+                                    <li>Experiencia internacional gestionando cocina caliente y eventos especiales.</li>
+                                    <li>Adaptación a equipos multidisciplinares en entornos extranjeros, utilizando el inglés.</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -252,11 +314,45 @@
         </div>
     </div>
 
+    <!-- Script para la lógica del Acordeón -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const toggles = document.querySelectorAll('.js-accordion-toggle');
+            
+            toggles.forEach(toggle => {
+                toggle.addEventListener('click', () => {
+                    // Seleccionar el contenido y el icono correspondiente a esta sección
+                    const content = toggle.nextElementSibling;
+                    const icon = toggle.querySelector('.js-icon');
+                    
+                    // Alternar la clase 'collapsed' (definida en el CSS superior)
+                    content.classList.toggle('collapsed');
+                    
+                    // Cambiar el icono y los márgenes dependiendo del estado
+                    if (content.classList.contains('collapsed')) {
+                        icon.classList.replace('fa-chevron-up', 'fa-chevron-down');
+                        content.classList.remove('mt-5', 'mt-6'); 
+                    } else {
+                        icon.classList.replace('fa-chevron-down', 'fa-chevron-up');
+                        content.classList.add(toggle.closest('section').querySelector('h2').innerText === 'Perfil Profesional' ? 'mt-5' : 'mt-6');
+                    }
+                });
+            });
+        });
+    </script>
+
     <style type="text/css" media="print">
         .no-print { display: none; }
         body { background-color: white; }
         .max-w-5xl { margin: 0; max-width: 100%; }
         .shadow-xl { shadow: none; }
+        /* Si el usuario imprime, forzar a que todos los acordeones se desplieguen */
+        .accordion-grid { 
+            grid-template-rows: 1fr !important; 
+            opacity: 1 !important; 
+            margin-top: 1.5rem !important; 
+        }
+        .js-icon { display: none !important; }
     </style>
 
 </body>
